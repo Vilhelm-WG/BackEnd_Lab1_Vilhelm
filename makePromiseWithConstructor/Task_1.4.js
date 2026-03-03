@@ -11,7 +11,22 @@
  * @returns {Promise<{username: string, authenticated: boolean}, string>}
  */
 function authenticateUser(username, password) {
-    // TODO: Реалізуйте функцію з всіма перевірками
+    return new Promise((resolve, reject) => {
+    if (username === '') {
+        reject("Username is required")
+    }
+    if (password === ""){
+        reject("Password is required")
+    }
+    if (password.length < 6){
+        reject("Password tii short")
+    }
+    else{
+        resolve({username: username, authenticated: true})
+    }
+    }
+    )
+
 }
 
 // Перевірка:
