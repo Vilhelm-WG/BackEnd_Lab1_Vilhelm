@@ -10,6 +10,15 @@
  */
 function simpleChain() {
     return Promise.resolve(5)
+        .then(value => {
+            return value * 2
+        })
+        .then (value =>{
+            return value + 10
+        })
+        .then(value =>{
+            return value.toString();
+        })
     // TODO: Додайте .then() для множення на 2
     // TODO: Додайте .then() для додавання 10
     // TODO: Додайте .then() для конвертації в рядок
