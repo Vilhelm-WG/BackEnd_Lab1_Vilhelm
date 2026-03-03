@@ -7,7 +7,9 @@
  * @returns {Promise<any>[]}
  */
 function valuesToPromises(values) {
-    // TODO: Конвертуйте кожне значення в проміс
+    return values.map(item => {
+        return Promise.resolve(item);
+    });
 }
 
 // Перевірка:
