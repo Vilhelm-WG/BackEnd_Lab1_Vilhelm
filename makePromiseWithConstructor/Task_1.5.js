@@ -10,11 +10,25 @@
  * @returns {Promise<{age: number, category: string}, string>}
  */
 function checkAge(age) {
-    // TODO: Реалізуйте функцію
+    return new Promise((resolve, reject) => {
+        if (age < 0 ){
+            reject("Invalid age")
+        }
+        else if (age < 18 ){
+            reject("Too young")
+        }
+        else if (age >= 18 && age < 65){
+            resolve({age, category: "adult"})
+        }
+        else if (age >= 65){
+            resolve({age, category: "senior"}
+            )
+        }
+    })
 }
 
-// Перевірка (розкоментуйте після реалізації):
-// checkAge(25).then(console.log).catch(console.error);
-// checkAge(70).then(console.log).catch(console.error);
-// checkAge(15).then(console.log).catch(console.error);
-// checkAge(-5).then(console.log).catch(console.error);
+ //Перевірка (розкоментуйте після реалізації):
+ checkAge(25).then(console.log).catch(console.error);
+ checkAge(70).then(console.log).catch(console.error);
+ checkAge(15).then(console.log).catch(console.error);
+ checkAge(-5).then(console.log).catch(console.error);
