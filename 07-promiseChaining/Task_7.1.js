@@ -19,9 +19,6 @@ function simpleChain() {
         .then(value =>{
             return value.toString();
         })
-    // TODO: Додайте .then() для множення на 2
-    // TODO: Додайте .then() для додавання 10
-    // TODO: Додайте .then() для конвертації в рядок
 }
 
 // Перевірка:
