@@ -26,8 +26,23 @@ function backupServer() {
  * @returns {Promise<{source: string, data: string}>}
  */
 function getDataWithFallback() {
-    // TODO: Реалізуйте логіку з таймаутом та fallback
-    // Підказка: використайте Promise.race() з таймаутом
+    // 1. Створюємо проміс-таймаут
+    const timeout = new Promise((_, reject) => {
+        setTimeout(() => reject(new Error('Timeout')), 1000);
+    });
+
+    // 2. Запускаємо гонку основного сервера проти таймауту
+    return Promise.race([primaryServer(), timeout])
+        .then(data => {
+            // Якщо primary встиг за 1 сек
+            return { source: 'primary', data: data };
+        })
+        .catch(() => {
+            // Якщо primary НЕ встиг (спрацював таймаут) — йдемо на backup
+            return backupServer().then(data => {
+                return { source: 'backup', data: data };
+            });
+        });
 }
 
 // Перевірка:
