@@ -22,6 +22,12 @@ function fetchFromServer(serverName, delay) {
  * @returns {Promise<{server: string, data: string, responseTime: number}>}
  */
 function fetchFromFastestServer() {
+    const request = [
+        fetchFromServer("Server A", 1000),
+        fetchFromServer("Server B", 500),
+        fetchFromServer("Server C", 800)
+    ];
+    return Promise.race(request);
     // TODO: Створіть запити до трьох серверів з різними затримками
     // Server A: 1000ms, Server B: 500ms, Server C: 800ms
     // Поверніть результат від найшвидшого
