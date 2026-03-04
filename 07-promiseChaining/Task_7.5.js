@@ -60,7 +60,19 @@ function calculateTotal(product, quantity) {
  * @returns {Promise<{product: string, quantity: number, unitPrice: number, total: number} | {error: string}>}
  */
 function placeOrder(productId, quantity) {
-    // TODO: Реалізуйте повний ланцюжок з обробкою помилок
+    return getProduct(productId)
+        .then(product => {
+            // Якщо продукт знайдено, перевіряємо склад
+            return checkStock(product);
+        })
+        .then(product => {
+            // Якщо склад ОК, рахуємо суму
+            return calculateTotal(product, quantity);
+        })
+        .catch(err => {
+            // Сюди ми потрапимо автоматично при будь-якій помилці вище
+            return { error: err.message };
+        });
 }
 
 // Перевірка:
