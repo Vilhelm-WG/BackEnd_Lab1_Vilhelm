@@ -24,7 +24,6 @@ function unreliableSource(name, delay, shouldFail) {
  * @returns {Promise<{source: string, data: string}>}
  */
 function getDataFromAnySource() {
-    function getDataFromAnySource() {
         const sources = [
             unreliableSource('Source A', 300, true),  // Впаде через 300
             unreliableSource('Source B', 500, false), // Успіх через 500
@@ -33,13 +32,6 @@ function getDataFromAnySource() {
 
         // Використовуємо .any для пошуку першого успішного
         return Promise.any(sources);
-    }
-    // TODO: Створіть 3 джерела:
-    // Source A: delay 300, fails
-    // Source B: delay 500, succeeds
-    // Source C: delay 200, fails
-    // Використайте Promise.race() але обробіть помилки так,
-    // щоб продовжити чекати на інші джерела
 }
 
 // Перевірка:
