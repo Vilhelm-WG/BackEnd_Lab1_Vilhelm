@@ -11,6 +11,9 @@
  */
 function processUser(user) {
     return Promise.resolve(user)
+        .then(user =>{
+            return{...user, name: user.name.toUpperCase()}
+        })
         .then(user => {
             // Додаємо поле isAdult до того, що вже маємо
             return { ...user, isAdult: user.age >= 18 };
