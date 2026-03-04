@@ -11,7 +11,14 @@
  */
 function processUser(user) {
     return Promise.resolve(user)
-    // TODO: Реалізуйте ланцюжок трансформацій
+        .then(user => {
+            // Додаємо поле isAdult до того, що вже маємо
+            return { ...user, isAdult: user.age >= 18 };
+        })
+        .then(user => {
+            // Додаємо поле nameLength (це довжина рядка user.name)
+            return { ...user, nameLength: user.name.length };
+        })
 }
 
 // Перевірка:
