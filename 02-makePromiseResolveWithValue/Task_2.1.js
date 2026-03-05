@@ -6,9 +6,10 @@
  * @returns {Promise<any>}
  */
 function makePromiseResolveWith(value) {
-    return new Promise ((resolve) => {
-    resolve(value)
-    })
+    return Promise.resolve(value);
+    // return new Promise ((resolve) => {
+    // resolve(value)
+    // })
 }
 
 // Перевірка:

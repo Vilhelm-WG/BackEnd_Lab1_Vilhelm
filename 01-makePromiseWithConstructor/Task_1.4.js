@@ -12,18 +12,18 @@
  */
 function authenticateUser(username, password) {
     return new Promise((resolve, reject) => {
-    if (username === '') {
-        reject("Username is required")
-    }
-    if (password === ""){
-        reject("Password is required")
-    }
-    if (password.length < 6){
+            if (username === '') {
+                reject("Username is required")
+            }
+            if (password === ""){
+                reject("Password is required")
+            }
+            if (password.length < 6){
         reject("Password tii short")
-    }
-    else{
-        resolve({username: username, authenticated: true})
-    }
+            }
+            else{
+                resolve({username: username, authenticated: true})
+            }
     }
     )
 

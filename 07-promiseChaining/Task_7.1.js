@@ -18,6 +18,7 @@ function simpleChain() {
         })
         .then(value =>{
             return value.toString();
+
         })
 }
 
