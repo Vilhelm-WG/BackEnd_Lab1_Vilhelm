@@ -20,9 +20,6 @@ function makePromiseWithConstructor(itShouldResolve) {
             reject('Failed!')
         }
     });
-    // TODO: Створіть новий Promise
-    // Якщо itShouldResolve === true, викличте resolve('Success!')
-    // Інакше викличте reject('Failed!')
 }
 
 // Перевірка:
